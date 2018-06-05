@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class SignUp extends Component {
+class SignUp2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,11 +19,12 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-        {this.state.email != "test@test.com" ? (
+
+        {this.state.email !== "test@test.com" ? (
           <h3>Votre email est : {this.state.email}</h3>
         ) : (
-          <h3>Exemple d'email : {this.state.email}</h3>
-        )}
+            <h3>Exemple d'email : {this.state.email}</h3>
+          )}
 
         <form onSubmit={this.updateEmailField}>
           <label htmlFor="email">Entrez votre email :</label>
@@ -38,4 +39,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default SignUp2;
