@@ -1,9 +1,8 @@
 const express = require("express");
-const connection = require('/home/wilder/Documents/React/React-voyage/react-odyssey/back/helpers/db.js');
+const connection = require('../../helpers/db.js');
 const authRouter = express.Router();
 
-
-authRouter.post('/signup', (req, res) => {
+authRouter.post('/signup', (req, res) => {console.log(req.body);
     const user =
         {
             email: req.body.email,
@@ -11,6 +10,7 @@ authRouter.post('/signup', (req, res) => {
             name: req.body.name,
             lastname: req.body.lastname
         }
+        
     const query = connection.query("INSERT INTO users SET ?", user, (error, results, fields) => {
         if (error)
             res.status(500).end();
@@ -19,3 +19,5 @@ authRouter.post('/signup', (req, res) => {
 });
 
 module.exports = authRouter;
+
+//attention, bien sélèctionner "JSON(application/json) dans Postman , à côté de binary"
